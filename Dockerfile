@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Copy package files
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install --frozen-lockfile --production
 
 # Stage 2: Builder
 FROM node:20-alpine AS builder
@@ -18,6 +18,7 @@ COPY . .
 # Set environment variables
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
+ENV NEXT_LINT_DURING_BUILD=false
 
 # Build the application
 RUN yarn build

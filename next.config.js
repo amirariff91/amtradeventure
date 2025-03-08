@@ -4,8 +4,6 @@ const nextConfig = {
   images: {
     domains: ['images.unsplash.com'],
   },
-  // Disable telemetry
-  telemetry: false,
 }
 
 module.exports = nextConfig 
