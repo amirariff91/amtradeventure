@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="personGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0088cc;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#00cc88;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#personGradient)" />
+  
+  <!-- Abstract person silhouette -->
+  <g fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Head -->
+    <circle cx="200" cy="150" r="60" />
+    <!-- Body -->
+    <path d="M200,220 L200,320" />
+    <!-- Arms -->
+    <path d="M200,250 L140,280" />
+    <path d="M200,250 L260,280" />
+    <!-- Shoulders -->
+    <path d="M160,230 C180,220 220,220 240,230" />
+  </g>
+  
+  <!-- Placeholder text -->
+  <text x="200" y="360" 
+        font-family="Arial, sans-serif" 
+        font-size="14" 
+        text-anchor="middle" 
+        fill="currentColor">
+    Team Member Photo
+  </text>
+</svg> 

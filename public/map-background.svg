@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="500" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simplified world map outline -->
+  <path d="M200,150 C250,100 300,120 350,150 C400,180 450,160 500,150 C550,140 600,160 650,180 C700,200 750,180 800,150" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2"
+        stroke-linecap="round" />
+  <!-- Simplified continents -->
+  <path d="M300,200 C350,180 400,190 450,200 C500,210 550,200 600,180" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2"
+        stroke-linecap="round" />
+  <path d="M400,250 C450,230 500,240 550,250 C600,260 650,250 700,230" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="2"
+        stroke-linecap="round" />
+  <!-- Location dots -->
+  <circle cx="450" cy="200" r="4" fill="currentColor" />
+  <circle cx="600" cy="180" r="4" fill="currentColor" />
+  <circle cx="350" cy="220" r="4" fill="currentColor" />
+  <circle cx="700" cy="190" r="4" fill="currentColor" />
+</svg> 

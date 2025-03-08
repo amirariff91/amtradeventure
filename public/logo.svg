@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0088cc" />
+      <stop offset="100%" style="stop-color:#00cc88" />
+    </linearGradient>
+  </defs>
+  <!-- Company initials -->
+  <text x="20" y="55" 
+        font-family="Arial, sans-serif" 
+        font-size="48" 
+        font-weight="bold" 
+        fill="url(#logoGradient)">
+    AMTRADE
+  </text>
+  <!-- Decorative line -->
+  <path d="M20,65 L180,65" 
+        stroke="url(#logoGradient)" 
+        stroke-width="3" 
+        stroke-linecap="round" />
+</svg> 
