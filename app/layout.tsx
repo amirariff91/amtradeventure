@@ -22,6 +22,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://amtradeventure.com'),
   title: "AMTRADE VENTURE SDN. BHD. | Engineering & Fabrication Solutions",
   description: "Leading provider of engineering, fabrication, and industrial solutions for the oil and gas sector in Malaysia. Specializing in steel structures, automation, and sustainable practices.",
   keywords: "engineering, fabrication, oil and gas, industrial solutions, steel structures, automation, Malaysia, Kemaman Supply Base",
