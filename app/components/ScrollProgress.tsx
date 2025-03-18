@@ -69,7 +69,7 @@ export default function ScrollProgress() {
   return (
     <>
       {/* Progress bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 z-50">
+      <div className="fixed top-0 left-0 right-0 h-1 z-50 hidden md:block">
         <div
           className="h-full bg-gradient-to-r from-[#0088cc] to-[#00cc88] transition-all duration-300 ease-out"
           style={{ width: `${progress}%` }}
@@ -77,7 +77,7 @@ export default function ScrollProgress() {
       </div>
 
       {/* Section dots */}
-      <nav className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40" aria-label="Section navigation">
+      <nav className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden md:block" aria-label="Section navigation">
         <ul className="flex flex-col gap-4">
           {sections.map((section) => (
             <li key={section.id}>
