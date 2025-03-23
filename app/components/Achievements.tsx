@@ -19,20 +19,6 @@ export default function Achievements() {
 
   const projects = [
     {
-      year: "2016",
-      description: "Provision of manpower, equipment and consumable for fabricate and supply of Cargo Handling Equipment",
-      client: "Petrofac",
-      logo: "/clients/petrofac.png",
-      bgColor: "bg-emerald-600"
-    },
-    {
-      year: "2017",
-      description: "Provision of Cargo Handling Equipment (CHE) Refurbishment for Exxonmobile and Production Malaysia Incorporated (EMPMI)",
-      client: "ExxonMobil",
-      logo: "/clients/exxonmobil.png",
-      bgColor: "bg-emerald-600"
-    },
-    {
       year: "2019",
       description: "Provision of repair and repaint Warehouse door W.H 33, 30, 31 & 14 at Kemaman Supply Base",
       client: "KSB",

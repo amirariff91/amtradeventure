@@ -75,20 +75,15 @@ export default function Hero() {
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
           }`}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-16">
             <span className="inline-block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-              Engineering
+              Engineering Excellence
             </span>
             <br />
             <span className="inline-block bg-gradient-to-r from-white/80 to-white bg-clip-text text-transparent">
-              Excellence
+              And Digital Solutions
             </span>
           </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl max-w-3xl mx-auto opacity-90 leading-relaxed font-light">
-            Delivering innovative industrial solutions
-            <br className="hidden md:block" />
-            for the oil and gas sector
-          </p>
         </div>
         
         <div 

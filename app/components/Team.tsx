@@ -83,9 +83,18 @@ export default function Team() {
   ]
 
   return (
-    <Section id="team-section" className="relative overflow-hidden bg-gradient-to-br from-[#0088cc] via-[#00a99d] to-[#00cc88]">
+    <Section 
+      id="team-section" 
+      className="relative overflow-hidden bg-transparent"
+      isDark={true}
+    >
+      <div className="absolute inset-0 md:inset-4 rounded-none md:rounded-3xl bg-gradient-to-br from-[#0088cc] via-[#00a99d] to-[#00cc88] shadow-2xl" />
+      
       {/* Geometric Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 md:inset-4 rounded-none md:rounded-3xl overflow-hidden pointer-events-none">
+        {/* Gradient overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent" />
+        
         {/* Right-pointing arrows */}
         <div className="absolute left-8 top-32 flex space-x-4">
           {[...Array(5)].map((_, i) => (
@@ -99,6 +108,7 @@ export default function Team() {
             />
           ))}
         </div>
+
         {/* Dots pattern */}
         <div className="absolute left-8 top-48 flex space-x-2">
           {[...Array(10)].map((_, i) => (
@@ -108,6 +118,7 @@ export default function Team() {
             />
           ))}
         </div>
+
         {/* Bottom dots pattern */}
         <div className="absolute left-8 bottom-8 flex space-x-2">
           {[...Array(10)].map((_, i) => (
@@ -117,9 +128,13 @@ export default function Team() {
             />
           ))}
         </div>
+
+        {/* Additional decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/5 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24">
         <SectionHeader
           label="Our Leadership"
           title="Meet Our Team"
@@ -127,7 +142,7 @@ export default function Team() {
           isDark={true}
         />
 
-        <div className="mt-8 relative">
+        <div className="mt-16 relative">
           {/* Top Row - Managing Director */}
           <div className={`flex justify-center mb-24 transform transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -141,8 +156,8 @@ export default function Team() {
                   role="article"
                   aria-label={`Team member: ${member.name}, ${member.role}`}
                 >
-                  <div className="relative aspect-square rounded-full overflow-hidden mb-4 transform transition-transform duration-300 group-hover:scale-105">
-                    <div className="absolute inset-0 rounded-full bg-[#001B3B]" />
+                  <div className="relative aspect-square rounded-full overflow-hidden mb-4 transform transition-transform duration-300 group-hover:scale-105 shadow-xl">
+                    <div className="absolute inset-0 rounded-full bg-[#001B3B] group-hover:bg-[#002B4B] transition-colors duration-300" />
                     <Image
                       src={member.image}
                       alt={`${member.name} - ${member.role}`}
@@ -150,17 +165,18 @@ export default function Team() {
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                       priority
                     />
+                    <div className="absolute inset-0 rounded-full ring-4 ring-white/10 group-hover:ring-white/20 transition-all duration-300" />
                   </div>
                   <div className="text-center relative">
-                    <div className="bg-[#001B3B]/80 backdrop-blur-sm p-3 transform transition-all duration-300 group-hover:bg-[#001B3B]/90 group-hover:shadow-lg">
-                      <p className="text-sm font-medium text-[#00a99d] mb-1">
+                    <div className="bg-[#001B3B]/80 backdrop-blur-sm p-6 rounded-2xl transform transition-all duration-300 group-hover:bg-[#001B3B]/90 group-hover:shadow-lg">
+                      <p className="text-sm font-medium text-[#00a99d] mb-2 uppercase tracking-wider">
                         {member.role}
                       </p>
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-xl font-bold text-white mb-3">
                         {member.name}
                       </h3>
                       {member.bio && (
-                        <p className="text-sm text-white/80 mb-3">
+                        <p className="text-sm text-white/80 mb-4">
                           {member.bio}
                         </p>
                       )}
@@ -169,7 +185,7 @@ export default function Team() {
                           {member.expertise.map((skill, idx) => (
                             <span
                               key={idx}
-                              className="text-xs px-2 py-1 bg-white/10 rounded-full text-white/90"
+                              className="text-xs px-3 py-1 bg-white/10 rounded-full text-white/90 hover:bg-white/20 transition-colors duration-300"
                             >
                               {skill}
                             </span>
@@ -198,25 +214,26 @@ export default function Team() {
                   role="article"
                   aria-label={`Team member: ${member.name}, ${member.role}`}
                 >
-                  <div className="relative aspect-square rounded-full overflow-hidden mb-4 transform transition-transform duration-300 group-hover:scale-105">
-                    <div className="absolute inset-0 rounded-full bg-[#001B3B]" />
+                  <div className="relative aspect-square rounded-full overflow-hidden mb-4 transform transition-transform duration-300 group-hover:scale-105 shadow-xl">
+                    <div className="absolute inset-0 rounded-full bg-[#001B3B] group-hover:bg-[#002B4B] transition-colors duration-300" />
                     <Image
                       src={member.image}
                       alt={`${member.name} - ${member.role}`}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 rounded-full ring-4 ring-white/10 group-hover:ring-white/20 transition-all duration-300" />
                   </div>
                   <div className="text-center relative">
-                    <div className="bg-[#001B3B]/80 backdrop-blur-sm p-3 transform transition-all duration-300 group-hover:bg-[#001B3B]/90 group-hover:shadow-lg">
-                      <p className="text-sm font-medium text-[#00a99d] mb-1">
+                    <div className="bg-[#001B3B]/80 backdrop-blur-sm p-6 rounded-2xl transform transition-all duration-300 group-hover:bg-[#001B3B]/90 group-hover:shadow-lg">
+                      <p className="text-sm font-medium text-[#00a99d] mb-2 uppercase tracking-wider">
                         {member.role}
                       </p>
-                      <h3 className="text-xl font-bold text-white mb-2">
+                      <h3 className="text-xl font-bold text-white mb-3">
                         {member.name}
                       </h3>
                       {member.bio && (
-                        <p className="text-sm text-white/80 mb-3">
+                        <p className="text-sm text-white/80 mb-4">
                           {member.bio}
                         </p>
                       )}
@@ -225,7 +242,7 @@ export default function Team() {
                           {member.expertise.map((skill, idx) => (
                             <span
                               key={idx}
-                              className="text-xs px-2 py-1 bg-white/10 rounded-full text-white/90"
+                              className="text-xs px-3 py-1 bg-white/10 rounded-full text-white/90 hover:bg-white/20 transition-colors duration-300"
                             >
                               {skill}
                             </span>

@@ -26,7 +26,8 @@ export default function Licenses() {
     {
       type: "Petronas License",
       logo: "/logos/petronas.png",
-      number: "201401034409"
+      number: "201401034409",
+      status: "Bumiputera Status"
     },
     {
       type: "TNB License",

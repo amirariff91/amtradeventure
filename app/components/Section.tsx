@@ -46,8 +46,8 @@ export default function Section({
     <section 
       id={id}
       className={`relative section-padding overflow-hidden ${
-        isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
-      } ${className}`}
+        className.includes('bg-') ? className : isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+      }`}
     >
       {hasPattern && <BackgroundPattern className={isDark ? 'opacity-50' : ''} />}
       
