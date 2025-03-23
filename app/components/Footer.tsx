@@ -27,7 +27,7 @@ export default function Footer() {
 
   const contactInfo = {
     company: {
-      name: 'AMTRADE VENTURE SDN. BHD.',
+      name: 'Amtrade Venture Sdn. Bhd.',
       regNo: '1110507-P'
     },
     address: {
@@ -161,7 +161,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-8 border-t border-gray-800 pt-8">
           <p className="text-sm text-gray-400 text-center">
-            © {new Date().getFullYear()} AMTRADE VENTURE SDN. BHD. All rights reserved.
+            © {new Date().getFullYear()} Amtrade Venture Sdn. Bhd. All rights reserved.
           </p>
         </div>
       </div>

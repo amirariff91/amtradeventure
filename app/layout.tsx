@@ -17,44 +17,117 @@ const geistMono = Geist_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  themeColor: "#0066cc",
+  maximumScale: 5,
+  themeColor: "#0088cc",
+  colorScheme: 'dark light'
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://amtradeventure.com'),
-  title: "AMTRADE VENTURE SDN. BHD. | Engineering & Fabrication Solutions",
-  description: "Leading provider of engineering, fabrication, and industrial solutions for the oil and gas sector in Malaysia. Specializing in steel structures, automation, and sustainable practices.",
-  keywords: "engineering, fabrication, oil and gas, industrial solutions, steel structures, automation, Malaysia, Kemaman Supply Base",
-  authors: [{ name: "AMTRADE VENTURE SDN. BHD." }],
+  title: {
+    default: "Amtrade Venture Sdn. Bhd. | Engineering & Fabrication Solutions",
+    template: "%s | Amtrade Venture"
+  },
+  description: "Leading Malaysian provider of engineering, fabrication, and industrial solutions for the oil and gas sector. Specializing in steel structures, automation, sustainable practices, and digital transformation at Kemaman Supply Base.",
+  keywords: [
+    "engineering solutions",
+    "fabrication services",
+    "oil and gas industry",
+    "industrial automation",
+    "steel structures",
+    "Kemaman Supply Base",
+    "Malaysian engineering company",
+    "Bumiputera company",
+    "sustainable engineering",
+    "digital transformation",
+    "industrial solutions",
+    "engineering excellence"
+  ],
+  authors: [{ name: "Amtrade Venture Sdn. Bhd.", url: "https://amtradeventure.com" }],
+  creator: "Amtrade Venture Sdn. Bhd.",
+  publisher: "Amtrade Venture Sdn. Bhd.",
+  formatDetection: {
+    telephone: true,
+    date: true,
+    address: true,
+    email: true
+  },
+  category: "Engineering & Industrial Solutions",
+  classification: "Business",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#0088cc' }
+    ]
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
-    title: "AMTRADE VENTURE SDN. BHD. | Engineering & Fabrication Solutions",
-    description: "Leading provider of engineering, fabrication, and industrial solutions for the oil and gas sector in Malaysia.",
     type: "website",
     locale: "en_MY",
-    siteName: "AMTRADE VENTURE SDN. BHD.",
+    alternateLocale: ["ms_MY"],
+    siteName: "Amtrade Venture Sdn. Bhd.",
+    title: "Amtrade Venture Sdn. Bhd. | Engineering & Fabrication Solutions",
+    description: "Leading Malaysian provider of engineering, fabrication, and industrial solutions for the oil and gas sector. Specializing in steel structures, automation, and sustainable practices.",
+    url: "https://amtradeventure.com",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "AMTRADE VENTURE Engineering Excellence"
+        alt: "Amtrade Venture Engineering Excellence",
+        type: "image/jpeg",
+        secureUrl: "https://amtradeventure.com/og-image.jpg"
       }
-    ]
+    ],
+    countryName: "Malaysia",
+    emails: ["hq@amtradeventure.com"],
+    phoneNumbers: ["+60179398580", "+60178774007"]
   },
   twitter: {
     card: "summary_large_image",
-    title: "AMTRADE VENTURE | Engineering Excellence",
-    description: "Leading provider of engineering and fabrication solutions for the oil and gas sector",
-    images: ["/og-image.jpg"]
+    title: "Amtrade Venture | Engineering Excellence",
+    description: "Leading Malaysian provider of engineering and fabrication solutions for the oil and gas sector. Bumiputera company specializing in industrial automation and sustainable practices.",
+    images: ["/og-image.jpg"],
+    site: "@amtradeventure",
+    creator: "@amtradeventure"
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
   },
   alternates: {
-    canonical: "https://amtradeventure.com"
-  }
+    canonical: "https://amtradeventure.com",
+    languages: {
+      'en-MY': 'https://amtradeventure.com',
+      'ms-MY': 'https://amtradeventure.com/ms'
+    }
+  },
+  verification: {
+    google: "your-google-site-verification-code",
+    other: {
+      yandex: "your-yandex-verification-code",
+      yahoo: "your-yahoo-verification-code"
+    }
+  },
+  applicationName: "Amtrade Venture",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin"
 };
 
 export default function RootLayout({

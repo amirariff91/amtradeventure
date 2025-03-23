@@ -85,13 +85,13 @@ export default function Team() {
   return (
     <Section 
       id="team-section" 
-      className="relative overflow-hidden bg-transparent"
+      className="relative overflow-hidden bg-transparent p-4"
       isDark={true}
     >
-      <div className="absolute inset-0 md:inset-4 rounded-none md:rounded-3xl bg-gradient-to-br from-[#0088cc] via-[#00a99d] to-[#00cc88] shadow-2xl" />
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#0088cc] via-[#00a99d] to-[#00cc88] shadow-2xl" />
       
       {/* Geometric Decorative Elements */}
-      <div className="absolute inset-0 md:inset-4 rounded-none md:rounded-3xl overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
         {/* Gradient overlay for better text contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent" />
         
