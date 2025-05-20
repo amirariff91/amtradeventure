@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import Hero from './components/Hero'
 import About from './components/About'
 import Philosophy from './components/Philosophy'
-import Team from './components/Team'
 import Coverage from './components/Coverage'
 import Competencies from './components/Competencies'
 import DigitalServices from './components/DigitalServices'
@@ -74,12 +73,6 @@ export default function Home() {
         <section id="coverage" className="reveal py-8 md:py-12">
           <div className="container">
             <Coverage />
-          </div>
-        </section>
-        
-        <section id="team" className="reveal bg-neutral-50 dark:bg-neutral-900 py-8 md:py-12">
-          <div className="container">
-            <Team />
           </div>
         </section>
       </div>

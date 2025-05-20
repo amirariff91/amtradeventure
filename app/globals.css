@@ -70,7 +70,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #18181b;
     --foreground: #ededed;
     --neutral-50: #171717;
     --neutral-100: #262626;
@@ -81,7 +81,7 @@
     --neutral-600: #d4d4d4;
     --neutral-700: #e5e5e5;
     --neutral-800: #f5f5f5;
-    --neutral-900: #fafafa;
+    --neutral-900: #27272a;
   }
 }
 
