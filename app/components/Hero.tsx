@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import BackgroundPattern from './BackgroundPattern'
+import Button from './Button'
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -91,52 +92,51 @@ export default function Hero() {
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
           }`}
         >
-          <button 
+          <Button
             onClick={handleExplore}
-            className="group relative px-8 py-4 bg-white text-[#0088cc] rounded-full font-semibold overflow-hidden transition-all hover:shadow-lg hover:shadow-white/20 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0088cc] disabled:opacity-70 disabled:cursor-not-allowed w-full sm:w-auto"
-            aria-label="Explore our solutions and services"
+            variant="secondary"
+            size="lg"
             disabled={isScrolling}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0088cc] to-[#00cc88] opacity-0 group-hover:opacity-10 transition-opacity" />
-            <span className="flex items-center justify-center gap-2">
-              Explore Our Solutions
+            icon={
               <svg
-                className="w-5 h-5 transform transition-transform group-hover:translate-y-1"
+                className="w-5 h-5"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                aria-hidden="true"
               >
                 <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
-            </span>
-          </button>
-          
-          <a 
-            href="#solutions"
-            className="group relative px-8 py-4 border-2 border-white text-white rounded-full font-semibold overflow-hidden transition-all hover:shadow-lg hover:shadow-white/20 active:scale-95 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0088cc] w-full sm:w-auto"
-            aria-label="View our core competencies"
+            }
+            className="bg-white text-[#0088cc] hover:bg-gray-50 border-0 shadow-lg hover:shadow-xl"
           >
-            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative flex items-center justify-center gap-2 group-hover:text-[#0088cc] transition-colors">
-              Our Expertise
+            Explore Our Solutions
+          </Button>
+          
+          <Button
+            as="a"
+            href="#solutions"
+            variant="outline"
+            size="lg"
+            icon={
               <svg
-                className="w-5 h-5 transform transition-transform group-hover:translate-x-1"
+                className="w-5 h-5"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                aria-hidden="true"
               >
                 <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </span>
-          </a>
+            }
+            className="border-white text-white hover:bg-white hover:text-[#0088cc] border-2"
+          >
+            Our Expertise
+          </Button>
         </div>
       </div>
       

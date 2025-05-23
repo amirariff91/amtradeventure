@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react'
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0)
   const [activeSection, setActiveSection] = useState('')
-  const [isVisible, setIsVisible] = useState(false)
-  const [hoveredSection, setHoveredSection] = useState<string | null>(null)
   const [showBackToTop, setShowBackToTop] = useState(false)
 
   const sections = [
@@ -52,19 +50,6 @@ export default function ScrollProgress() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const handleDotClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault()
-    const target = document.getElementById(id)
-    if (target) {
-      const offset = 80 // Account for fixed header
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      })
-    }
-  }
 
   return (
     <>

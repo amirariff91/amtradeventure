@@ -15,7 +15,6 @@ interface TeamMember {
 }
 
 export default function Team() {
-  const [activeTeamMember, setActiveTeamMember] = useState<number | null>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {

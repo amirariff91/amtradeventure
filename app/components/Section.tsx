@@ -1,65 +1,59 @@
 'use client'
 
-import { useEffect, useState, ReactNode } from 'react'
-import BackgroundPattern from './BackgroundPattern'
+import { ReactNode } from 'react'
 
 interface SectionProps {
-  id: string
+  id?: string
   children: ReactNode
   className?: string
   hasPattern?: boolean
   isDark?: boolean
+  variant?: 'default' | 'alternate' | 'gradient'
+  size?: 'sm' | 'md' | 'lg'
 }
 
-export default function Section({ 
-  id, 
-  children, 
+export default function Section({
+  id,
+  children,
   className = '',
   hasPattern = false,
-  isDark = false
+  isDark = false,
+  variant = 'default',
+  size = 'md'
 }: SectionProps) {
-  const [isVisible, setIsVisible] = useState(false)
+  const sizeClasses = {
+    sm: 'py-8 md:py-12',
+    md: 'py-12 md:py-16',
+    lg: 'py-16 md:py-20'
+  }
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.unobserve(entry.target)
-        }
-      },
-      { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -10% 0px'
-      }
-    )
+  const variantClasses = {
+    default: isDark 
+      ? 'bg-neutral-900 text-white' 
+      : 'bg-white text-neutral-900',
+    alternate: isDark 
+      ? 'bg-neutral-800 text-white' 
+      : 'bg-neutral-50 text-neutral-900',
+    gradient: 'bg-gradient-to-br from-[#0088cc] via-[#00a99d] to-[#00cc88] text-white'
+  }
 
-    const section = document.getElementById(id)
-    if (section) {
-      observer.observe(section)
-    }
-
-    return () => observer.disconnect()
-  }, [id])
+  const sectionClasses = `
+    relative overflow-hidden
+    ${sizeClasses[size]}
+    ${variantClasses[variant]}
+    ${className}
+  `.trim()
 
   return (
-    <section 
-      id={id}
-      className={`relative section-padding overflow-hidden transition-colors duration-300 ${
-        className.includes('bg-') 
-          ? className 
-          : isDark 
-            ? 'bg-gray-900 text-white dark:bg-black' 
-            : 'bg-white text-gray-900 dark:bg-neutral-900 dark:text-white'
-      }`}
-    >
-      {hasPattern && <BackgroundPattern className={isDark ? 'opacity-50' : ''} />}
+    <section id={id} className={sectionClasses}>
+      {hasPattern && (
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#0088cc]/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-[#00cc88]/5 rounded-full blur-3xl animate-pulse delay-1000" />
+        </div>
+      )}
       
-      <div 
-        className={`container mx-auto px-4 relative transform transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
-      >
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         {children}
       </div>
     </section>

@@ -1,20 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
 import Section from './Section'
 import SectionHeader from './SectionHeader'
 
-interface License {
-  type: string
-  logo: string
-  number: string
-  status?: string
-  description?: string
-}
-
 export default function Licenses() {
-  const [activeLicense, setActiveLicense] = useState<number | null>(null)
 
   const licenses = [
     {
@@ -67,8 +57,6 @@ export default function Licenses() {
             <div
               key={index}
               className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-neutral-100"
-              onMouseEnter={() => setActiveLicense(index)}
-              onMouseLeave={() => setActiveLicense(null)}
             >
               <div className="flex flex-col items-center text-center">
                 <div className="relative w-32 h-32 mb-6">

@@ -5,17 +5,8 @@ import Image from 'next/image'
 import Section from './Section'
 import SectionHeader from './SectionHeader'
 
-interface Project {
-  year: string
-  description: string
-  client: string
-  logo: string
-  bgColor: string
-}
-
 export default function Achievements() {
   const [activeProject, setActiveProject] = useState<number | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
 
   const projects = [
     {

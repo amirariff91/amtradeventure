@@ -68,8 +68,41 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Light theme variables (default) */
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+}
+
+/* Dark theme variables */
+.dark {
+  --background: #18181b;
+  --foreground: #ededed;
+  --neutral-50: #171717;
+  --neutral-100: #262626;
+  --neutral-200: #404040;
+  --neutral-300: #525252;
+  --neutral-400: #737373;
+  --neutral-500: #a3a3a3;
+  --neutral-600: #d4d4d4;
+  --neutral-700: #e5e5e5;
+  --neutral-800: #f5f5f5;
+  --neutral-900: #27272a;
+}
+
+/* System preference fallback */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light):not(.dark) {
     --background: #18181b;
     --foreground: #ededed;
     --neutral-50: #171717;
@@ -199,6 +232,26 @@ a, button {
   }
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes bounce-in {
+  0% { 
+    transform: scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+  50% { 
+    transform: scale(1.1) rotate(5deg);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
 /* Reveal animations */
 .reveal {
   opacity: 0;
@@ -237,25 +290,27 @@ a, button {
 }
 
 .btn-primary {
-  @apply bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] text-white 
-         hover:shadow-lg hover:shadow-[var(--primary)]/20 
-         active:scale-95
-         focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2;
+  @apply bg-gradient-to-r from-[#0088cc] to-[#00cc88] text-white 
+         hover:shadow-lg hover:shadow-[#0088cc]/20 
+         active:scale-95 hover:scale-105
+         focus:outline-none focus:ring-2 focus:ring-[#0088cc]/50 focus:ring-offset-2;
   background-size: 200% 100%;
-  transition: background-position 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
   background-position: right center;
+  transform: translateY(-2px) scale(1.05);
 }
 
 .btn-outline {
   @apply border-2 border-white text-white 
-         hover:bg-white hover:text-[var(--primary)] 
-         active:scale-95
+         hover:bg-white hover:text-[#0088cc] 
+         active:scale-95 hover:scale-105
          focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
   position: relative;
   z-index: 1;
+  transition: all 0.3s ease;
 }
 
 .btn-outline::before {
@@ -284,6 +339,9 @@ a, button {
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--neutral-200);
 }
 
 .card::before {

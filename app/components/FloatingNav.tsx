@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import ThemeToggle from './ThemeToggle'
 
 export default function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false)
@@ -136,47 +137,52 @@ export default function FloatingNav() {
               </button>
               
               {/* Desktop navigation */}
-              <ul className="hidden md:flex items-center gap-6" role="menubar">
-                {navItems.map((item) => (
-                  <li key={item.name} role="none">
+              <div className="hidden md:flex items-center gap-6">
+                <ul className="flex items-center gap-6" role="menubar">
+                  {navItems.map((item) => (
+                    <li key={item.name} role="none">
+                      <a 
+                        href={item.href}
+                        onClick={(e) => handleNavClick(e, item.href)}
+                        className={`nav-link text-sm font-medium transition-all relative px-3 py-2 rounded-lg
+                          ${activeSection === item.href.slice(1)
+                            ? 'text-[#0088cc] dark:text-[#00a99d] font-semibold bg-[#0088cc]/5 dark:bg-[#00a99d]/5'
+                            : 'text-neutral-600 dark:text-neutral-300 hover:text-[#0088cc] dark:hover:text-[#00a99d] hover:bg-[#0088cc]/5 dark:hover:bg-[#00a99d]/5'
+                          }
+                          focus:outline-none focus:ring-2 focus:ring-[#0088cc] dark:focus:ring-[#00a99d] focus:ring-offset-2
+                        `}
+                        role="menuitem"
+                        aria-current={activeSection === item.href.slice(1) ? 'page' : undefined}
+                      >
+                        {item.name}
+                        {activeSection === item.href.slice(1) && (
+                          <span className="absolute bottom-0 left-1/2 right-1/2 h-0.5 bg-gradient-to-r from-[#0088cc] to-[#00cc88] dark:from-[#00a99d] dark:to-[#00cc88] transform -translate-x-1/2 scale-x-100 transition-all duration-300 group-hover:scale-x-110" />
+                        )}
+                      </a>
+                    </li>
+                  ))}
+                  <li role="none">
                     <a 
-                      href={item.href}
-                      onClick={(e) => handleNavClick(e, item.href)}
-                      className={`nav-link text-sm font-medium transition-all relative px-3 py-2 rounded-lg
-                        ${activeSection === item.href.slice(1)
-                          ? 'text-[#0088cc] dark:text-[#00a99d] font-semibold bg-[#0088cc]/5 dark:bg-[#00a99d]/5'
-                          : 'text-neutral-600 dark:text-neutral-300 hover:text-[#0088cc] dark:hover:text-[#00a99d] hover:bg-[#0088cc]/5 dark:hover:bg-[#00a99d]/5'
-                        }
-                        focus:outline-none focus:ring-2 focus:ring-[#0088cc] dark:focus:ring-[#00a99d] focus:ring-offset-2
-                      `}
-                      role="menuitem"
-                      aria-current={activeSection === item.href.slice(1) ? 'page' : undefined}
+                      href="#contact"
+                      className="btn btn-primary inline-flex items-center gap-2 group px-6 py-2.5 text-sm dark:bg-[#00a99d] dark:hover:bg-[#00cc88] transition-colors duration-300"
+                      onClick={(e) => handleNavClick(e, '#contact')}
                     >
-                      {item.name}
-                      {activeSection === item.href.slice(1) && (
-                        <span className="absolute bottom-0 left-1/2 right-1/2 h-0.5 bg-gradient-to-r from-[#0088cc] to-[#00cc88] dark:from-[#00a99d] dark:to-[#00cc88] transform -translate-x-1/2 scale-x-100 transition-all duration-300 group-hover:scale-x-110" />
-                      )}
+                      Contact
+                      <svg 
+                        className="w-4 h-4 transform transition-transform group-hover:translate-x-1" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
                     </a>
                   </li>
-                ))}
-                <li role="none">
-                  <a 
-                    href="#contact"
-                    className="btn btn-primary inline-flex items-center gap-2 group px-6 py-2.5 text-sm dark:bg-[#00a99d] dark:hover:bg-[#00cc88] transition-colors duration-300"
-                    onClick={(e) => handleNavClick(e, '#contact')}
-                  >
-                    Contact
-                    <svg 
-                      className="w-4 h-4 transform transition-transform group-hover:translate-x-1" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
-                </li>
-              </ul>
+                </ul>
+                
+                {/* Theme Toggle */}
+                <ThemeToggle />
+              </div>
             </nav>
 
             {/* Mobile menu */}
@@ -216,21 +222,28 @@ export default function FloatingNav() {
                   </li>
                 ))}
                 <li className="pt-4" role="none">
-                  <a 
-                    href="#contact"
-                    onClick={(e) => handleNavClick(e, '#contact')}
-                    className="w-full btn btn-primary inline-flex items-center justify-center gap-2 group"
-                  >
-                    Contact Us
-                    <svg 
-                      className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
+                  <div className="flex flex-col gap-4">
+                    <a 
+                      href="#contact"
+                      onClick={(e) => handleNavClick(e, '#contact')}
+                      className="w-full btn btn-primary inline-flex items-center justify-center gap-2 group"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </a>
+                      Contact Us
+                      <svg 
+                        className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                    
+                    {/* Mobile Theme Toggle */}
+                    <div className="flex items-center justify-center">
+                      <ThemeToggle />
+                    </div>
+                  </div>
                 </li>
               </ul>
             </div>
